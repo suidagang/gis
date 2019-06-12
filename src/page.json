@@ -1,0 +1,11 @@
+{
+ 
+  "accessoriesList": {
+    "path": "./src/page/accessoriesList/accessoriesList.js",
+    "title": "批量出库配件列表"
+  },
+  "contactUs": {
+    "path": "./src/page/contactUs/contactUs.js",
+    "title": "联系我们"
+  }
+}
