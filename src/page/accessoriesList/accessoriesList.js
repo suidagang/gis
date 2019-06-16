@@ -10,7 +10,8 @@ import {
   Submenu,
   MenuItem,
   MenuItemGroup,
-  Icon 
+  Icon,
+  Link
 } from 'element-ui';
 Vue.use(Button);
 Vue.use(Select);
@@ -20,6 +21,7 @@ Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 Vue.use(Icon);
+Vue.use(Link);
 
 new Vue({
   el: "#app",
