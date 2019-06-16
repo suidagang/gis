@@ -188,6 +188,10 @@ export default {
 
   computed: {},
   methods: {
+    //清楚选中样式
+    clearActive() {
+      this.noActive();
+    },
     //隐藏显示自定义图层
     hideCustomizeLayer(obj, show) {
       obj.show = !show;
@@ -198,11 +202,11 @@ export default {
     },
     //新增
     openAddModal() {
-        this.$emit("openNewLayerModal");
+      this.$emit("openNewLayerModal");
     },
     //新增一个图层
     addOneLayer(obj) {
-        this.layerList.push(obj);
+      this.layerList.push(obj);
     },
     hideLayer(obj, show) {
       //如果下面有子集
@@ -232,8 +236,8 @@ export default {
       this.noActive();
 
       obj.active = true;
-      if(obj.children &&obj.children.length<=0){
-          this.$emit("openModal");
+      if (obj.children && obj.children.length <= 0) {
+        this.$emit("openModal");
       }
     }
   }

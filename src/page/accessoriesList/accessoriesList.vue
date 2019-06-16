@@ -19,7 +19,7 @@
       </el-menu>
     </div>
     <div class="main-map"></div>
-    <SetModal ref="setModal"></SetModal>
+    <SetModal @closeSet="closeSet" ref="setModal"></SetModal>
     <NewLayerModal ref="newLayerModal" @sureChoiceTemplate="sureChoiceTemplate"></NewLayerModal>
   </div>
 </template>
@@ -42,6 +42,9 @@ export default {
   computed: {},
   mounted() {},
   methods: {
+    closeSet() {
+		this.$refs.siderBarItem.clearActive();
+	},
     openModal() {
       this.$refs.setModal.open();
     },
@@ -66,17 +69,20 @@ export default {
   color: black;
   border-bottom: 1px solid #ccc;
 }
-html,body,div,.content{
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	overflow-y: auto;
+html,
+body,
+div,
+.content {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
 }
 .main-map {
-	margin-left: 180px;
-	min-height: 100%;
-	z-index: 9999;
-	background: pink;
-	overflow: hidden;
+  margin-left: 180px;
+  min-height: 100%;
+  z-index: 9999;
+  background: pink;
+  overflow: hidden;
 }
 </style>
