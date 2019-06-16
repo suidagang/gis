@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div class="sidebar-container">
       <el-menu
         class="side-bar-box"
@@ -11,18 +11,23 @@
         active-text-color="#409EFF"
         :unique-opened="true"
       >
-        <SidebarItem ref="siderBarItem" @openModal="openModal" @openNewLayerModal = 'openNewLayerModal'></SidebarItem>
+        <SidebarItem
+          ref="siderBarItem"
+          @openModal="openModal"
+          @openNewLayerModal="openNewLayerModal"
+        ></SidebarItem>
       </el-menu>
     </div>
+    <div class="main-map"></div>
     <SetModal ref="setModal"></SetModal>
-    <NewLayerModal ref="newLayerModal" @sureChoiceTemplate = "sureChoiceTemplate"></NewLayerModal>
+    <NewLayerModal ref="newLayerModal" @sureChoiceTemplate="sureChoiceTemplate"></NewLayerModal>
   </div>
 </template>
 
 <script>
 import SidebarItem from "@/component/accessoriesList/siderBarItem.vue";
 import SetModal from "@/component/accessoriesList/setModal.vue";
-import NewLayerModal from "@/component/accessoriesList/newLayerModal.vue"
+import NewLayerModal from "@/component/accessoriesList/newLayerModal.vue";
 export default {
   components: {
     SidebarItem,
@@ -38,14 +43,14 @@ export default {
   mounted() {},
   methods: {
     openModal() {
-      this.$refs.setModal.open()
+      this.$refs.setModal.open();
     },
     openNewLayerModal() {
-        this.$refs.newLayerModal.open()
+      this.$refs.newLayerModal.open();
     },
-    sureChoiceTemplate (obj) {
-        console.log("到这里")
-        this.$refs.siderBarItem.addOneLayer(obj);
+    sureChoiceTemplate(obj) {
+      console.log("到这里");
+      this.$refs.siderBarItem.addOneLayer(obj);
     }
   }
 };
@@ -60,5 +65,18 @@ export default {
   font-size: 20px;
   color: black;
   border-bottom: 1px solid #ccc;
+}
+html,body,div,.content{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow-y: auto;
+}
+.main-map {
+	margin-left: 180px;
+	min-height: 100%;
+	z-index: 9999;
+	background: pink;
+	overflow: hidden;
 }
 </style>
