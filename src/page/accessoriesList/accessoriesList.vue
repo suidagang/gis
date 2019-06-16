@@ -18,7 +18,9 @@
         ></SidebarItem>
       </el-menu>
     </div>
-    <div class="main-map"></div>
+    <div class="main-map">
+		<div style="height:2000px;width:100px;"></div>
+	</div>
     <SetModal @closeSet="closeSet" ref="setModal"></SetModal>
     <NewLayerModal ref="newLayerModal" @sureChoiceTemplate="sureChoiceTemplate"></NewLayerModal>
   </div>
@@ -69,10 +71,7 @@ export default {
   color: black;
   border-bottom: 1px solid #ccc;
 }
-html,
-body,
-div,
-.content {
+html,body,.content {
   margin: 0;
   padding: 0;
   height: 100%;

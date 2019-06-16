@@ -207,6 +207,10 @@ export default {
     //新增一个图层
     addOneLayer(obj) {
       this.layerList.push(obj);
+      this.layerList.push(obj);
+      this.layerList.push(obj);
+      this.layerList.push(obj);
+      this.layerList.push(obj);
     },
     hideLayer(obj, show) {
       //如果下面有子集
