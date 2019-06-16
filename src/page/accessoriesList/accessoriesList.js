@@ -11,7 +11,8 @@ import {
   MenuItem,
   MenuItemGroup,
   Icon,
-  Link
+  Link,
+  dialog
 } from 'element-ui';
 Vue.use(Button);
 Vue.use(Select);
@@ -22,6 +23,7 @@ Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 Vue.use(Icon);
 Vue.use(Link);
+Vue.use(dialog);
 
 new Vue({
   el: "#app",

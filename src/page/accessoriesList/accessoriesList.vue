@@ -1,47 +1,64 @@
 <template>
-    <div class="sidebar-container ">
-        <el-menu class="side-bar-box"
-                 mode="vertical"
-                 :show-timeout="200"
-                 active-background-color = "red"
-                 background-color= "#304156"
-                 text-color="#bfcbd9"
-                 active-text-color="#409EFF"
-                 :unique-opened="true"
-                 >
-            <SidebarItem></SidebarItem>
-        </el-menu>
+  <div>
+    <div class="sidebar-container">
+      <el-menu
+        class="side-bar-box"
+        mode="vertical"
+        :show-timeout="200"
+        active-background-color="red"
+        background-color="#304156"
+        text-color="#bfcbd9"
+        active-text-color="#409EFF"
+        :unique-opened="true"
+      >
+        <SidebarItem ref="siderBarItem" @openModal="openModal" @openNewLayerModal = 'openNewLayerModal'></SidebarItem>
+      </el-menu>
     </div>
+    <SetModal ref="setModal"></SetModal>
+    <NewLayerModal ref="newLayerModal" @sureChoiceTemplate = "sureChoiceTemplate"></NewLayerModal>
+  </div>
 </template>
 
 <script>
-   import SidebarItem from '@/component/siderBarItem.vue'
-    export default {
-        components: {
-           SidebarItem
-        },
-        data() {
-            return {
-                
-            }
-        },
-        computed: {
-        },
-        mounted() {
-        },
-        methods: {
-        }
+import SidebarItem from "@/component/accessoriesList/siderBarItem.vue";
+import SetModal from "@/component/accessoriesList/setModal.vue";
+import NewLayerModal from "@/component/accessoriesList/newLayerModal.vue"
+export default {
+  components: {
+    SidebarItem,
+    SetModal,
+    NewLayerModal
+  },
+  data() {
+    return {
+      dialogVisible: false
+    };
+  },
+  computed: {},
+  mounted() {},
+  methods: {
+    openModal() {
+      this.$refs.setModal.open()
+    },
+    openNewLayerModal() {
+        this.$refs.newLayerModal.open()
+    },
+    sureChoiceTemplate (obj) {
+        console.log("到这里")
+        this.$refs.siderBarItem.addOneLayer(obj);
     }
+  }
+};
 </script>
 
 <style scoped>
-    .head {
-        height: 50px;
-        width: 100%;
-        line-height: 50px;
-        text-align: center;
-        font-size: 20px;
-        color: black;
-        border-bottom: 1px solid #ccc;
-    }
+.head {
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  border-bottom: 1px solid #ccc;
+}
 </style>
