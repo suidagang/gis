@@ -60,8 +60,7 @@ const webpackConfig = {
     extensions: [".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      "@": resolve("src"),
-      mui: resolve("src") + "/assets/mui/"
+      "@": resolve("src")
     }
   },
   module: {
@@ -124,9 +123,6 @@ const webpackConfig = {
     child_process: "empty"
   },
   plugins: [...extraHtmlWebpackPlugins, new webpack.DefinePlugin(Defines),
-  new vConsolePlugin({
-    enable: config.dev.vConsole // 发布代码前记得改回 false
-  }),
   new CommonsChunkPlugin({
     name: ["vue"],
     minChunks: 2

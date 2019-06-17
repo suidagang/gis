@@ -10,7 +10,9 @@
 		</div>
 		<!-- <SetModal @closeSet="closeSet" ref="setModal"></SetModal> -->
 		<NewLayerModal ref="newLayerModal" @sureChoiceTemplate="sureChoiceTemplate"></NewLayerModal>
-		<MapSpecificSettings ref="mapSpecificSettings" class="map-set-box" @closeSet = "closeSet"></MapSpecificSettings>
+		<MapSpecificSettings ref="mapSpecificSettings" class="map-set-box" @closeSet = "closeSet" @showGroupChioceTem= "showGroupChioceTem" @showSet ="showSet"></MapSpecificSettings>
+		<MapTemplateGroup ref="mapTemplateGroup" @confirmGroupChoiceTem = "confirmGroupChoiceTem"></MapTemplateGroup>
+		<MapSet ref="mapSet"></MapSet>
 	</div>
 </template>
 
@@ -19,12 +21,16 @@
 	import SetModal from "@/components/accessoriesList/setModal.vue";
 	import NewLayerModal from "@/components/accessoriesList/newLayerModal.vue";
 	import MapSpecificSettings from "@/components/accessoriesList/mapSpecificSettings.vue";
+	import MapTemplateGroup from "@/components/accessoriesList/mapTemplateGroup.vue";
+	import MapSet from "@/components/accessoriesList/mapSet.vue";
 	export default {
 		components: {
 			SidebarItem,
 			SetModal,
 			NewLayerModal,
-			MapSpecificSettings
+			MapSpecificSettings,
+			MapTemplateGroup,
+			MapSet
 		},
 		data() {
 			return {
@@ -36,6 +42,7 @@
 		methods: {
 			closeSet() {
 				this.$refs.siderBarItem.clearActive();
+				this.$refs.mapSet.close();
 			},
 			openModal() {
 				this.$refs.mapSpecificSettings.open();
@@ -46,6 +53,15 @@
 			sureChoiceTemplate(obj) {
 				console.log("到这里");
 				this.$refs.siderBarItem.addOneLayer(obj);
+			},
+			showGroupChioceTem(){
+				this.$refs.mapTemplateGroup.open();
+			},
+			confirmGroupChoiceTem(){
+				this.$refs.mapSpecificSettings.addGroup()
+			},
+			showSet(){
+				this.$refs.mapSet.open()
 			}
 		}
 	};
