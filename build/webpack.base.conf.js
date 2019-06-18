@@ -54,13 +54,15 @@ const webpackConfig = {
   },
   output: {
     path: config.build.assetsRoot,
-    filename: "[name].js"
+    filename: "[name].js",
+    // 未被列在 entry 且需要被打包出来的文件
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   resolve: {
     extensions: [".js", ".vue", ".json"],
     alias: {
-      vue$: "vue/dist/vue.esm.js",
-      "@": resolve("src")
+      "@": resolve("src"),
+      'vue$': 'vue/dist/vue.esm.js',
     }
   },
   module: {
